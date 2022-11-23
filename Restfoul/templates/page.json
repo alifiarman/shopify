@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "bg_img": "shopify:\/\/shop_images\/banner.png",
+        "sub_heading": "Lorem ipsum dolor sit amet consectetur."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

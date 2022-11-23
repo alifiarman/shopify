@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="canonical" href="{{ canonical_url }}">
+
+
+        {%- if settings.favicon != blank -%}
+            <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+        {%- endif -%}
+
+        <title>{{page.title}}</title>
+
+        {{content_for_header}}
+
+        {% comment %} Font Awosome  {% endcomment %}
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+        
+        {% comment %} Css Link  {% endcomment %}
+        
+        {{ 'slick.css' | asset_url | stylesheet_tag }}
+        {{ 'style.css' | asset_url | stylesheet_tag }}
+        {{ 'sidebar-cart.css' | asset_url | stylesheet_tag }}
+        {{ 'responsive.css' | asset_url | stylesheet_tag }}
+
+        <style>{% if settings.enable_stycki_header %}.header-wrap{position: sticky; top: 0; z-index: 100;}{% endif %}</style>
+        
+    </head>
+    <body>
+        
+      <div class="container_main">
+        <div class="container_content">
+            {% section 'annauncement' %}
+
+           <div class="header-wrap">{% section 'header' %}</div>
+    
+              <main class="main-content" id="MainContent" role="main">
+                  {{ content_for_layout }}
+              </main>
+      
+            {% section 'foter' %}
+        </div>
+        <div id="cart-wrap" class="sidebar-cart_container">
+            {% section 'sidebar-cart' %}
+        </div>
+      </div>
+
+      
+        {% comment %} Javascript Link  {% endcomment %}
+
+    
+        
+        {{ 'jquery-3.6.1.min.js' | asset_url | script_tag }}
+        {{ 'slick.min.js' | asset_url | script_tag }}
+        <script src="https://cdn.jsdelivr.net/npm/url-parse@1.5.10/dist/url-parse.min.js"></script>
+        {{ 'script.js' | asset_url | script_tag }}
+
+            <script type="application/json" data-ajax-cart-configuration >
+            {
+              "addToCartCssClass": "js-my-cart-open"
+            }
+          </script>
+
+              <!--       Ajaxify cart js  -->
+      
+        <script type="application/json" data-ajax-cart-initial-state >
+          {{ cart | json }}
+        </script>
+        <script type="module">
+          import '{{ "liquid-ajax-cart-v1.10.3.js" | asset_url }}';
+        </script>
+    </body>
+    </html>

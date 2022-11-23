@@ -1,0 +1,147 @@
+<style>
+    #contuct-details{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #contuct-details .details{
+        width: 40%;
+    }
+    #contuct-details .details span{
+        font-size: 12px;
+    }
+    #contuct-details .details h2{
+        font-size: 26px;
+        line-height: 35px;
+        padding: 20px 0;
+    }
+    #contuct-details .details h3{
+        font-size: 16px;
+        padding-bottom: 15px;
+    }
+    #contuct-details .details li{
+        display: flex;
+        align-items: center;
+        padding-bottom: 10px 0;
+    }
+    #contuct-details .details li p{
+        margin-bottom: -12px;
+        padding-left: 20px;
+    }
+    #contuct-details .map{
+        width: 55%;
+        height: 400px;
+    }
+    #contuct-details .map frame{
+        width: 100%;
+        height: 100%;
+    }
+    @media (max-width: 820px ){
+        #contuct-details {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        #contuct-details .map{
+            margin-top: 20px;
+            width: 100%;
+        }
+    }
+    @media (max-width: 477px ){
+        #contuct-details .details {
+            width: 100%;
+        }
+    }
+</style>
+
+
+<section id="contuct-details" class="section-p1 page-wraper">
+    <div class="details">
+        <span>{{ section.settings.heading | upcase }}</span>
+        <h2>{{ section.settings.plain_text }}</h2>
+        <h3>{{ section.settings.office_name }}</h3>
+        <div>
+                {% if section.settings.location != blank %}
+                    <li>
+                        <i class="fa-solid fa-map-location"></i>
+                        <p>{{ section.settings.location }}</p>
+                    </li>
+                {% endif %}
+
+                {% if section.settings.company_mail != blank %}
+                    <li>
+                        <i class="fa-regular fa-envelope"></i>
+                        <p>{{ section.settings.company_mail }}</p>
+                    </li>
+                {% endif %}
+
+                {% if section.settings.company_phone %}
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <p>{{ section.settings.company_phone }}</p>
+                    </li>
+                {% endif %}
+
+                {% if section.settings.company_time %}
+                    <li>
+                        <i class="fa-regular fa-clock"></i>
+                        <p>{{ section.settings.company_time }}</p>
+                    </li>
+                {% endif %}
+        </div>
+    </div>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49249.42638332058!2d91.13196355930253!3d23.442945191735284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37547f249815015d%3A0x549a77e542115f77!2z4KaV4KeB4Kau4Ka_4Kay4KeN4Kay4Ka-!5e0!3m2!1sbn!2sbd!4v1662139492059!5m2!1sbn!2sbd" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+
+
+{%- schema -%}
+{
+    "name" : "Location",
+    "settings" :[
+        {
+            "type" : "text",
+            "id" : "heading",
+            "label" : "Heading",
+            "default" : "Grt in Tuch"
+        },
+        {
+            "type" : "text",
+            "id" : "plain_text",
+            "label" : "Sub Heading",
+            "default" : "Visit one of our location or Contuct with us!"
+        },
+        {
+            "type" : "text",
+            "id" : "office_name",
+            "label" : "Office Position",
+            "default" : "Head Office"
+        },
+        {
+            "type" : "text",
+            "id" : "location",
+            "label" : "Location",
+            "default" : "Lorem ipsum dolor sit consectetur."
+        },
+        {
+            "type" : "text",
+            "id" : "company_mail",
+            "label" : "Company Email",
+            "default" : "contuct@xample.com"
+        },
+        {
+            "type" : "text",
+            "id" : "company_phone",
+            "label" : "Company Phone Number",
+            "default" : "+880123456789"
+        },
+        {
+            "type" : "text",
+            "id" : "company_time",
+            "label" : "Company Office Time",
+            "default" : "Monday to Friday 9:00 PM"
+        }
+    ]
+}
+{%- endschema -%}

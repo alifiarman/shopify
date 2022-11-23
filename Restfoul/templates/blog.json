@@ -1,0 +1,47 @@
+{
+  "sections": {
+    "main": {
+      "type": "blog-template",
+      "settings": {
+        "feature_img": "shopify:\/\/shop_images\/b19.jpg",
+        "sub_heading": "Lorem ipsum dolor sit amet consectetur."
+      }
+    },
+    "3c7901cf-b20a-4e65-aa89-feee62fae90e": {
+      "type": "features",
+      "settings": {
+        "featired_img1": "shopify:\/\/shop_images\/f2.png",
+        "featured_txt1": "Free Shiping",
+        "featired_img2": "shopify:\/\/shop_images\/f4.png",
+        "featured_txt2": "Online Order",
+        "featired_img3": "shopify:\/\/shop_images\/f5.png",
+        "featured_txt3": "Save Money",
+        "featired_img4": "shopify:\/\/shop_images\/f3.png",
+        "featured_txt4": "Promotion",
+        "featired_img5": "shopify:\/\/shop_images\/f1.png",
+        "featured_txt5": "Happy Sell",
+        "featired_img6": "shopify:\/\/shop_images\/f6.png",
+        "featured_txt6": "F14\/7 Support"
+      }
+    },
+    "dcba4d45-e853-4c2e-980d-580d6609e097": {
+      "type": "promotional-banner",
+      "settings": {
+        "background_image": "shopify:\/\/shop_images\/b18.jpg",
+        "background_text": "#6032a8",
+        "level_text": "Repair Service",
+        "level_txt_color": "#ffffff",
+        "heading_text": "Up to all T-sharts and Accessories!",
+        "heading_txt_color": "#ffffff",
+        "heading_span_text": "70% off",
+        "span_txt_color": "#ff00c3",
+        "button_text": "Explore More"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "3c7901cf-b20a-4e65-aa89-feee62fae90e",
+    "dcba4d45-e853-4c2e-980d-580d6609e097"
+  ]
+}

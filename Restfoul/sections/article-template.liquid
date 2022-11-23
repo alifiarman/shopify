@@ -1,0 +1,77 @@
+
+<style>
+    #article-header{
+        background-image: url('{{ article.image | img_url: '1900x' }}');
+        background-size: cover;
+        height: 40vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 14PX;
+    }
+    #article-header h2 , 
+    #article-header p{
+        color: rgb(104, 102, 102);
+    }
+    #post_body .heading {
+        text-align: center;
+    }
+    #post_body .heading h1 {
+        font-size: 30px;
+        color: #585858;
+        margin: 10px 0 40px 0;
+        letter-spacing: 2px;
+    }
+    #post_body .heading span {
+        font-size: 18px;
+        letter-spacing: 3px;
+        color: #666666;
+        margin-top: 40px;
+    }
+    #post_body .post_content p{
+        font-size: 18px;
+        color: #716289;
+        letter-spacing: 1.5px;
+        max-width: 800px;
+
+    }
+    #post_body .post_content h4{
+        font-size: 14px;
+        color: #919191;
+    }
+</style>
+
+
+
+
+
+<section id="article-header">
+    {%- comment -%} <h2>{{ article.title }}</h2>
+    <p>Lorem ipsum dolor sit amet consectetur.</p> {%- endcomment -%}
+</section>
+
+<section id="post_body" class="section-p1 page-wraper">
+    <div class="post_wrap">
+        <div class="heading">
+            <span>{{ article.created_at | date: '%B %d, %Y' }}</span>
+            <h1>{{ article.title | upcase }}</h1>
+        </div>
+        <div class="post_content">
+            <h4>{{ article.author | upcase }}</h4>
+            <p>{{ article.content}}</p>
+        </div>
+    </div>
+</section>
+
+
+
+{%- schema -%}
+{
+    "name" : "Article Templae",
+    "settings" : [
+
+    ]
+}
+{%- endschema -%}

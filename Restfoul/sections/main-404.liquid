@@ -1,0 +1,53 @@
+<style>
+    .main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.main .content h2 {
+    font-size: 40px;
+    letter-spacing: 3px;
+}
+.main .content a {
+    font-size: 22px;
+    color: #363636;
+    text-decoration: none;
+    letter-spacing: 2px;
+    padding: 20px 0 0 0;
+}
+.content{
+    text-align : center;
+    margin : 300px;
+}
+
+</style>
+
+
+<div class="main">
+  <div class="content">
+        <h2>{{ section.settings.main_heading | upcase }}</h2>
+        <a href="{{ shop.url }}">{{ section.settings.button_text }}</a>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "404",
+    "settings": [
+      {
+        "type" : "text",
+        "id" : "main_heading",
+        "label" : "Heading",
+        "default" : "There is Noting :)"
+      },
+      {
+        "type" : "text",
+        "id" : "button_text",
+        "label" : "Button Text",
+        "default" : "Go back Homepage"
+      }
+    ]
+  }
+{% endschema %}

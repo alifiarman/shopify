@@ -1,0 +1,172 @@
+<style>
+      #featured{
+        display: flex;
+        align-items: center;
+        /* flex-wrap: wrap; */
+        justify-content: center;
+    }
+    #featured .fe-box{
+        width: 180px;
+        text-align: center;
+        padding: 25px 15px;
+        box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+        border: 1px solid #cce7d0 ;
+        border-radius: 4px;
+        margin: 15px 0;
+        margin: 15px;
+    }
+    #featured .fe-box:hover{
+        box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.1);
+    }
+    #featured .fe-box img{
+        width: 100%;
+    }
+    #featured .fe-box h6{
+        margin-top: 8px;
+        padding: 9px 8px 6px 8px;
+        line-height: 1;
+        border-radius: 4px;
+        color: #088178;
+        background-color: #fddde4;
+    }
+    #featured .fe-box:nth-child(2) h6{
+        background-color: #cdedde;
+    }
+    #featured .fe-box:nth-child(3) h6{
+        background-color: #d1e8f2;
+    }
+    #featured .fe-box:nth-child(4) h6{
+        background-color: #cdd4f8;
+    }
+    #featured .fe-box:nth-child(5) h6{
+        background-color: #f6dbf6;
+    }
+    #featured .fe-box:nth-child(6) h6{
+        background-color: #fff2e5;
+    }
+  
+</style>
+
+
+
+
+<section id="featured" class="section-p1">
+      <div class="fe-box">
+        {% if section.settings.featired_img1 %}
+          <img src="{{ section.settings.featired_img1 | img_url: "1900" }}" alt="{{ section.settings.featured_txt1 }}">
+        {% endif %}
+          <h6>{{ section.settings.featured_txt1 | upcase }}</h6>
+      </div>
+      <div class="fe-box">
+        {% if section.settings.featired_img2 %}
+          <img src="{{ section.settings.featired_img2 | img_url: "1900" }}" alt="{{ section.settings.featured_txt2 }}">
+        {% endif %}
+          <h6>{{ section.settings.featured_txt2 | upcase }}</h6>
+      </div>
+      <div class="fe-box">
+        {% if section.settings.featired_img3 %}
+          <img src="{{ section.settings.featired_img3 | img_url: "1900" }}" alt="{{ section.settings.featured_txt3 }}">
+        {% endif %}
+          <h6>{{ section.settings.featured_txt3 | upcase }}</h6>
+      </div>
+      <div class="fe-box">
+        {% if section.settings.featired_img4 %}
+          <img src="{{ section.settings.featired_img4 | img_url: "1900" }}" alt="{{ section.settings.featured_txt4 }}">
+        {% endif %}
+          <h6>{{ section.settings.featured_txt4 | upcase }}</h6>
+      </div>
+      <div class="fe-box">
+        {% if section.settings.featired_img5 %}
+          <img src="{{ section.settings.featired_img5 | img_url: "1900" }}" alt="{{ section.settings.featured_txt5 }}">
+        {% endif %}
+          <h6>{{ section.settings.featured_txt5 | upcase }}</h6>
+      </div>
+      <div class="fe-box">
+         {% if section.settings.featired_img6 %}
+          <img src="{{ section.settings.featired_img6 | img_url: "1900" }}" alt="{{ section.settings.featured_txt6 }}">
+        {% endif %}
+          <h6>{{ section.settings.featured_txt6 | upcase }}</h6>
+      </div>
+</section>
+
+
+
+{% schema %}
+  {
+    "name": "Features",
+    "settings": [
+      {
+        "type" : "image_picker",
+        "id" : "featired_img1",
+        "label" : "Featured Image"
+      },
+      {
+        "type" : "text",
+        "id" : "featured_txt1",
+        "label" : "Featured Text",
+        "default" : "Free Shiping"
+      },
+      {
+        "type" : "image_picker",
+        "id" : "featired_img2",
+        "label" : "Featured Image"
+      },
+      {
+        "type" : "text",
+        "id" : "featured_txt2",
+        "label" : "Featured Text",
+        "default" : "Online Order"
+      },
+      {
+        "type" : "image_picker",
+        "id" : "featired_img3",
+        "label" : "Featured Image"
+      },
+      {
+        "type" : "text",
+        "id" : "featured_txt3",
+        "label" : "Featured Text",
+        "default" : "Save Money"
+      },
+      {
+        "type" : "image_picker",
+        "id" : "featired_img4",
+        "label" : "Featured Image"
+      },
+      {
+        "type" : "text",
+        "id" : "featured_txt4",
+        "label" : "Featured Text",
+        "default" : "Promotion"
+      },
+      {
+        "type" : "image_picker",
+        "id" : "featired_img5",
+        "label" : "Featured Image"
+      },
+      {
+        "type" : "text",
+        "id" : "featured_txt5",
+        "label" : "Featured Text",
+        "default" : "Happy Sell"
+      },
+      {
+        "type" : "image_picker",
+        "id" : "featired_img6",
+        "label" : "Featured Image"
+      },
+      {
+        "type" : "text",
+        "id" : "featured_txt6",
+        "label" : "Featured Text",
+        "default" : "Happy Sell",
+        "default" : "F14/7 Support"
+      }
+    ],
+    "presets" : [
+      {
+        "name" : "Features"
+      }
+    ]
+  }
+{% endschema %}

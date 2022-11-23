@@ -1,0 +1,171 @@
+<style>
+  #form-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* margin: 100px 30px; */
+    padding: 80px;
+    border: 1px solid #e1e1e1;
+  }
+  #form-details form {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  #form-details form input,
+  #form-details form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    outline: none;
+    margin-bottom: 20px;
+    border: 1px solid #e1e1e1;
+  }
+  #form-details form span {
+    font-size: 12px;
+  }
+  #form-details form h2 {
+    font-size: 26px;
+    line-height: 35px;
+    padding: 20px 0;
+  }
+  #form-details form button {
+    background-color: #088178;
+    color: #fff;
+  }
+  #form-details .peapol {
+    padding-bottom: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #form-details .peapol img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  #form-details .peapol p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 25px;
+  }
+  #form-details .peapol p span {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: #000;
+  }
+</style>
+
+<section id="form-details" class="section-p1 page-wraper">
+
+
+  {%- form 'contact' -%}
+
+    {%- if form.posted_successfully? -%}
+      <p>
+        Successfully Submited!
+      </p>
+    {%- endif -%}
+
+
+    <span>{{ section.settings.form_lavel | upcase }}
+    </span>
+    <h2>{{ section.settings.form_heading }}
+    </h2>
+
+    <input type="text" name="contact[name]" placeholder="Your Name" id="name">
+
+    <input type="email" name="contact[email]" placeholder="Your E-mail" id="email">
+
+    <input type="text" name="contact[subject]" placeholder="Your Subject" id="subject">
+
+    <textarea name="contact[message]" id="message" cols="30" rows="10" placeholder="Massage"></textarea>
+
+    <button type="submit" class="button1 normal" value="Submit">Submit</button>
+
+  {%- endform -%}
+
+
+  <div class="peapole-wrap">
+
+    {% for block in section.blocks %}
+
+      <div class="peapol">
+        <img src="{{ block.settings.aouthor_pic | img_url: '1900x' }}" alt="peapol">
+        <p>
+          <span>{{ block.settings.name }}
+          </span>
+          {{ block.settings.designation }}
+          <br>
+          {% if block.settings.phone != block %}
+            Phone :{{block.settings.phone}}
+          {% endif %}
+          <br>
+          {% if block.settings.email != blank %}
+            Email :{{block.settings.email}}
+          {% endif %}
+        </p>
+
+      </div>
+
+    {% endfor %}
+  </div>
+</section>
+
+{%- schema -%}
+  {
+    "name": "Contuct Form",
+    "settings": [
+      {
+        "type": "text",
+        "id": "form_lavel",
+        "label": "Form Lavel Text",
+        "default": "Leave a Massage"
+      }, {
+        "type": "text",
+        "id": "form_heading",
+        "label": "Form Heading",
+        "default": "We love to hear from you"
+      }
+    ],
+    "max_blocks": 3,
+    "blocks": [
+      {
+        "type": "side_bar",
+        "name": "Aouthor Details",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "aouthor_pic",
+            "label": "Upload Aouthor Picture"
+          },
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Aouthor Name",
+            "default": "Jhon Doe"
+          },
+          {
+            "type": "text",
+            "id": "designation",
+            "label": "Aouthor Designation",
+            "default": "Senior Marketing Manager"
+          },
+          {
+            "type": "text",
+            "id": "phone",
+            "label": "Aouthor Phone Number",
+            "default": "+55012 12334"
+          }, {
+            "type": "text",
+            "id": "email",
+            "label": "Aouthor Email Address",
+            "default": "Example@email.com"
+          }
+        ]
+      }
+    ]
+  }
+{%- endschema -%}

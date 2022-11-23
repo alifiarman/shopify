@@ -1,0 +1,43 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "bg_img": "shopify:\/\/shop_images\/banner.png",
+        "sub_heading": "Lorem ipsum dolor sit amet consectetur."
+      }
+    },
+    "about-us": {
+      "type": "about-us",
+      "settings": {
+        "about_img": "shopify:\/\/shop_images\/a6.jpg",
+        "heading": "Who we are?",
+        "about_txt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque fugiat maxime beatae earum velit tempora recusandae laboriosam nemo quibusdam repudiandae reiciendis dicta suscipit at harum architecto necessitatibus culpa eius, sint porro. Voluptatum nulla qui placeat hic accusantium illum, sint earum illo voluptates dolor labore fugit ex nostrum molestias eius saepe temporibus aut eaque sapiente repellendus! Nihil cupiditate quasi sed iusto harum illum, architecto quae amet ullam obcaecati excepturi alias ratione!",
+        "dotted_txt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus sit molestiae, eum laborum maxime modi soluta amet dolorum! Explicabo, laborum.",
+        "text_with_animation": "sint earum illo voluptates dolor labore fugit ex nostrum molestias eius saepe temporibus aut eaque sapiente repellendus! Nihil"
+      }
+    },
+    "featured": {
+      "type": "features",
+      "settings": {
+        "featired_img1": "shopify:\/\/shop_images\/f1.png",
+        "featured_txt1": "Free Shiping",
+        "featired_img2": "shopify:\/\/shop_images\/f2.png",
+        "featured_txt2": "Online Order",
+        "featired_img3": "shopify:\/\/shop_images\/f3.png",
+        "featured_txt3": "Save Money",
+        "featired_img4": "shopify:\/\/shop_images\/f4.png",
+        "featured_txt4": "Promotion",
+        "featired_img5": "shopify:\/\/shop_images\/f5.png",
+        "featured_txt5": "Happy Sell",
+        "featired_img6": "shopify:\/\/shop_images\/f6.png",
+        "featured_txt6": "F14\/7 Support"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "about-us",
+    "featured"
+  ]
+}

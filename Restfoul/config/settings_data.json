@@ -1,0 +1,100 @@
+{
+  "current": {
+    "favicon": "shopify:\/\/shop_images\/f5.png",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "nav_logo": "shopify:\/\/shop_images\/shopify-table-decor.jpg",
+          "header-menu": "main-menu",
+          "header_bg_color": "#e3e6f3",
+          "header_bg_vartical_space": 20,
+          "txt_logo_color": "#000000",
+          "logo_img_size": 100,
+          "txt_logo_font_size": 23,
+          "txt_link_color": "#1a1a1a",
+          "txt_link_color_hover": "#088178",
+          "link_font_size": 18,
+          "link_space": 20
+        }
+      },
+      "foter": {
+        "type": "foter",
+        "settings": {
+          "foter_bg_color": "#ffffff",
+          "foter_logo": "shopify:\/\/shop_images\/shopify-table-decor.jpg",
+          "logo_foter_img_size": 100,
+          "txt_foter_logo_color": "#000000",
+          "txt_foter_logo_font_size": 25,
+          "foter_address": "Lorem ipsum dolor sit amet.",
+          "foter_email_address": "sample@gmail.com",
+          "foter_phone": "0123456789",
+          "facebook_link": "#",
+          "twitter_link": "#",
+          "instagram_link": "#",
+          "pintarest_link": "#",
+          "youtube_link": "#",
+          "foter_menu_title": "About",
+          "foter_menu": "about-menu",
+          "customer_menu_title": "My Account",
+          "foter_customer_menu": "my-account",
+          "google_play_app": "shopify:\/\/shop_images\/app.jpg",
+          "apple_app_stor": "shopify:\/\/shop_images\/play.jpg",
+          "payment_getway": "shopify:\/\/shop_images\/pay.png",
+          "copyright_txt": "© 2004-2022 CBS INTERACTIVE. ALL RIGHTS RESERVED."
+        }
+      },
+      "homepage-slider": {
+        "type": "homepage-slider",
+        "blocks": {
+          "8de342d7-1b4c-4b15-980b-5104aee0003e": {
+            "type": "content",
+            "settings": {
+              "slider_heading": "It’s still Magic Even if you know how it’s work",
+              "slider_pera": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over",
+              "slider_btn_txt": "Discover More"
+            }
+          },
+          "081b4663-85a3-40d7-aa8c-9ff1c6b0646a": {
+            "type": "content",
+            "settings": {
+              "slider_heading": "It’s still Magic Even if you know how it’s work",
+              "slider_pera": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over",
+              "slider_btn_txt": "Discover More"
+            }
+          }
+        },
+        "block_order": [
+          "8de342d7-1b4c-4b15-980b-5104aee0003e",
+          "081b4663-85a3-40d7-aa8c-9ff1c6b0646a"
+        ],
+        "settings": {
+          "slider_pera_color": "#363535",
+          "slider_btn_txt_color": "#000000",
+          "slider_btn_bg_color": "#ff0000"
+        }
+      },
+      "annauncement": {
+        "type": "annauncement",
+        "blocks": {
+          "0aa28af4-4ac8-491f-9dbb-83f4bde35ff0": {
+            "type": "content",
+            "settings": {
+              "heading": "Announce a Offer"
+            }
+          }
+        },
+        "block_order": [
+          "0aa28af4-4ac8-491f-9dbb-83f4bde35ff0"
+        ],
+        "settings": {
+          "show_announcement": true,
+          "bg_color": "#f960ff",
+          "font_size": 18,
+          "pading_size": 15
+        }
+      }
+    },
+    "content_for_index": []
+  }
+}

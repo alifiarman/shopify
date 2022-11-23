@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "main": {
+      "type": "article-template",
+      "settings": {}
+    },
+    "aadef602-7ed3-42cc-8a2c-e228f89eeeea": {
+      "type": "offer-banner",
+      "settings": {
+        "frist_image": "shopify:\/\/shop_images\/b17.jpg",
+        "second_image": "shopify:\/\/shop_images\/rack-of-womens-clothing.jpg",
+        "text_color_1st": "#000"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "aadef602-7ed3-42cc-8a2c-e228f89eeeea"
+  ]
+}

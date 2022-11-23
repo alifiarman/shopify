@@ -1,0 +1,43 @@
+<style>
+  #about-header {
+    background-image: url("{{ section.settings.bg_img | img_url: '1900x' }}");
+    background-size: cover;
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 14 PX;
+  }
+  #about-header h2,
+  #about-header p {
+    color: #fff;
+  }
+</style>
+
+<section id="about-header">
+  <h2>#{{ page.title }}
+  </h2>
+  <p>{{ section.settings.sub_heading }}
+  </p>
+</section>
+
+
+{%- schema -%}
+  {
+    "name": "Page Header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg_img",
+        "label": "Background Image"
+      }, {
+        "type": "text",
+        "id": "sub_heading",
+        "label": "Sub Heading",
+        "default": "Lorem ipsum dolor sit amet consectetur."
+      }
+    ]
+  }
+{%- endschema -%}

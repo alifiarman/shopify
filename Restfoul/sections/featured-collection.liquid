@@ -1,0 +1,169 @@
+
+<style>
+  #product{
+    text-align: center;
+
+}
+#product .pro-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+#product .pro{
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    transition: 0.03s ease;
+    position: relative;
+    margin: 15px;
+}
+#product .pro:hover{
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+}
+#product .pro img{
+    width: 100%;
+    border-radius: 20px;
+}
+#product .pro .des{
+    text-align: start;
+    padding: 10px 0;
+
+}
+#product .pro .des span{
+    color: #606063;
+    font-size: 12px;
+}
+#product .pro .des h5{
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 14px;
+
+
+}
+#product .pro .des i{
+    font-size: 12px;
+    padding-top: 7px;
+    color: rgb(243, 180, 25);
+}
+#product .pro .des h4{
+    font-size: 15px;
+    padding-top:7px ;
+    color: #088178;
+}
+#product .pro .cart{
+    position: absolute;
+    right: 22px;
+    bottom: 19px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: #08817950;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#product .pro .cart:hover{
+    color: #ff00c3;
+}
+button.cart {
+    outline: none;
+    border: none;
+    color: #1000ff;
+   cursor: pointer;
+}
+@media (max-width: 820px ){
+    #product .pro-container {
+        justify-content: center;
+    }
+    #product .pro {
+        margin: 15px;
+    }
+}
+@media (max-width: 477px {
+   #product .pro {
+        width: 100%;
+    }
+}
+</style>
+
+
+
+<section id="product" class="section-p1 page-wraper">
+        <h2>{{ section.settings.featured_text_heading }}</h2>
+        <p>{{ section.settings.featured_text_small }}</p>
+        <div class="pro-container">
+
+            {% assign collection = collections[section.settings.featured_collection] %}
+    
+                {% for product in collection.products limit:section.settings.product_limit %}
+                    <a href="{{product.url}}" >
+                      <div class="pro">
+                          <img src="{{ product.featured_image | img_url: "1900x" }}" alt="{{ product.title }}">
+                          <div class="des">
+                              <span>{{ product.vendor }}</span>
+                              <h5>{{ product.title }}</h5>
+                              <div class="star">
+                                  <i class=" fas fa-star"></i>
+                                  <i class=" fas fa-star"></i>
+                                  <i class=" fas fa-star"></i>
+                                  <i class=" fas fa-star"></i>
+                                  <i class=" fas fa-star"></i>
+                              </div>
+                              <h4>{{ product.price | money }}</h4>
+                          </div>
+                          {% form 'product' , product %}
+                            <input id="product-id" type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}">
+                            <a  href="#" class="cart"></a>
+                            <button type="submit" class="cart"> <i class="fa-solid fa-cart-shopping"></i></button>
+                          {% endform %}
+                      </div>
+                    </a>
+                {% endfor %}
+
+        </div>
+    </section>
+{% schema %}
+  {
+    "name": "Featured Collection",
+    "settings": [
+      {
+        "type" : "text",
+        "id" : "featured_text_heading",
+        "label" : "Featured Collection Text",
+        "default" : "Featured Product"
+      },
+      {
+        "type" : "text",
+        "id" : "featured_text_small",
+        "label" : "Featured Collection Text",
+        "default" : "Summer collection New Modern Design"
+      },
+      {
+        "type" : "collection",
+        "id" : "featured_collection",
+        "label" : "Slct a Collection"
+      },
+      {
+        "type": "range",
+        "id": "product_limit",
+        "min": 2,
+        "max": 18,
+        "step": 2,
+        "unit": "px",
+        "label": "Product Limit",
+        "default": 6
+      }
+    ],
+     "presets" : [
+      {
+        "name" : "Featured Collection"
+      }
+    ]
+  }
+{% endschema %}

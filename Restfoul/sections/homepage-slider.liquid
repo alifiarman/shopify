@@ -1,0 +1,141 @@
+
+<style>
+  #sliders {
+    height: 100vh;
+  }
+  #sliders .single-slider {
+    width: 100%;
+    height: 80vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  .slider-content {
+    max-width: 451px;
+    position: absolute;
+    top: 28%;
+    left: 15%;
+    color: #fff;
+  }
+  #sliders .slider-content h4 {
+    font-size: 44px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: {{ blocks.settings.slider_heading_color }};
+  }
+  #sliders .slider-content p {
+    font-size: 19px;
+    font-weight: normal;
+    margin-bottom: 30px;
+    color: {{ section.settings.slider_pera_color }};
+  }
+  #sliders .slider-content a {
+    padding: 14px 40px;
+    background-color: {{ section.settings.slider_btn_bg_color }};
+    color: {{ section.settings.slider_btn_txt_color }};
+  }
+  img.slick-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  img.prev.slick-arrow {
+    left: 7%;
+    width: 60px;
+  }
+  img.next.slick-arrow {
+    right: 7%;
+    width: 60px;
+  }
+</style>
+
+
+
+<section id="sliders">
+  <div class="sliders">
+
+    {% for block in section.blocks %}
+      <div class="single-slider" {% if block.settings.slider_img != blank %} style="background-image: url('{{block.settings.slider_img | img_url:"1900x" }}');" {% endif %}>
+        <div class="slider-content">
+          <h4>{{ block.settings.slider_heading }}
+          </h4>
+          <p>{{ block.settings.slider_pera }}
+          </p>
+          <a href="#">{{ block.settings.slider_btn_txt }}
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+
+
+{%- schema -%}
+  {
+    "name": "Homepage Slider",
+    "settings": [
+      {
+        "type": "color",
+        "id": "slider_pera_color",
+        "label": "Slider Plain Text Color",
+        "default": "#363535"
+      }, {
+        "type": "color",
+        "id": "slider_btn_txt_color",
+        "label": "Slider Button Text Color",
+        "default": "#000"
+      }, {
+        "type": "color",
+        "id": "slider_btn_bg_color",
+        "label": "Slider Button Background Color",
+        "default": "rgb(0, 145, 255)"
+      }
+    ],
+    "max_blocks": 4,
+    "blocks": [
+      {
+        "type": "content",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "slider_img",
+            "label": "Upload Slider Image"
+          },
+          {
+            "type": "color",
+            "id": "slider_heading_color",
+            "label": "Slider Heading Text Color",
+            "default": "#000"
+          },
+          {
+            "type": "text",
+            "id": "slider_heading",
+            "label": "Slider Heading",
+            "default": "It’s still Magic Even if you know how it’s work"
+          },
+          {
+            "type": "text",
+            "id": "slider_pera",
+            "label": "Slider Plain Text",
+            "default": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over"
+          }, {
+            "type": "text",
+            "id": "slider_btn_txt",
+            "label": "Slider Button Text",
+            "default": "Discover More"
+          }
+        ]
+      }
+    ],
+    "presets" : [
+      {
+        "name" : "Homepage Slider"
+      }
+    ]
+  }
+{%- endschema -%} 

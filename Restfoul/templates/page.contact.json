@@ -1,0 +1,73 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "bg_img": "shopify:\/\/shop_images\/banner.png",
+        "sub_heading": "Lorem ipsum dolor sit amet consectetur."
+      }
+    },
+    "location": {
+      "type": "location",
+      "settings": {
+        "heading": "Grt in Tuch",
+        "plain_text": "Visit one of our location or Contuct with us!",
+        "office_name": "Head Office",
+        "location": "Lorem ipsum dolor sit consectetur.",
+        "company_mail": "contuct@xample.com",
+        "company_phone": "+880123456789",
+        "company_time": "Monday to Friday 9:00 PM",
+        "map_address": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d2587.4318995464573!2d90.99137241616856!3d23.4899789819699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37546410fc486353%3A0x878c583b556fd8ce!2z4KaV4KeB4Kau4Ka_4Kay4KeN4Kay4Ka-IOCmquCmsuCnjeCmsuCngCDgpqzgpr_gpqbgp43gpq_gp4HgpqQg4Ka44Kau4Ka_4Kak4Ka_LeCnpywg4Kaa4Ka-4Kao4KeN4Kam4Ka_4Kao4Ka-IOCml-CnjeCmsOCmvuCmqOCnjeCmoSDgpp_gp43gprDgpr7gpoLgppUg4Kaw4KeL4KahLCAzNTEw!5e0!3m2!1sbn!2sbd!4v1665499810989!5m2!1sbn!2sbd\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>"
+      }
+    },
+    "main-form": {
+      "type": "contact-form",
+      "blocks": {
+        "da8b71e6-9766-4f88-9dfa-91277a8c6bca": {
+          "type": "side_bar",
+          "settings": {
+            "aouthor_pic": "shopify:\/\/shop_images\/1.png",
+            "name": "Jhon Doe",
+            "designation": "Senior Marketing Manager",
+            "phone": "+55012 12334",
+            "email": "Example@email.com"
+          }
+        },
+        "105163bd-7740-45d7-80f5-53c2248b90a1": {
+          "type": "side_bar",
+          "settings": {
+            "aouthor_pic": "shopify:\/\/shop_images\/2.png",
+            "name": "Jhon Doe",
+            "designation": "Senior Marketing Manager",
+            "phone": "+55012 12334",
+            "email": "Example@email.com"
+          }
+        },
+        "b8fecdc3-b378-4269-a45f-9df53c6c3494": {
+          "type": "side_bar",
+          "settings": {
+            "aouthor_pic": "shopify:\/\/shop_images\/3.png",
+            "name": "Jhon Doe",
+            "designation": "Senior Marketing Manager",
+            "phone": "+55012 12334",
+            "email": "Example@email.com"
+          }
+        }
+      },
+      "block_order": [
+        "da8b71e6-9766-4f88-9dfa-91277a8c6bca",
+        "105163bd-7740-45d7-80f5-53c2248b90a1",
+        "b8fecdc3-b378-4269-a45f-9df53c6c3494"
+      ],
+      "settings": {
+        "form_lavel": "Leave a Massage",
+        "form_heading": "We love to hear from you"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "location",
+    "main-form"
+  ]
+}

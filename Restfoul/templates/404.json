@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "settings": {
+        "main_heading": "There is Noting :)",
+        "button_text": "Go back Homepage"
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "featured_text_heading": "Featured Product",
+        "featured_text_small": "Summer collection New Modern Design",
+        "featured_collection": "new-arrivals",
+        "product_limit": 6
+      }
+    }
+  },
+  "order": [
+    "main",
+    "featured-collection"
+  ]
+}

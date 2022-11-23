@@ -1,0 +1,30 @@
+
+<style>
+    #shop-hero{
+        background-image: url('{{product.featured_image | img_url: '1900x'}}');
+
+        height: 50vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 14PX;
+    }
+    #shop-hero H2,
+    #shop-hero P{
+        color: rgb(136, 255, 0);
+    }
+</style>
+
+<section id="shop-hero">
+    <h2>#stayhome</h2>
+    <p>Save more with coupones & up to 70% off!</p>
+</section>
+
+
+{%- schema -%}
+{
+
+}
+{%- endschema -%}

@@ -1,0 +1,113 @@
+
+<style>
+#baner{
+    {% if section.settings.background_image != blank %}
+        background-image: url("{{ section.settings.background_image | img_url: "1900x" }}");
+    {% else %}
+      background-color: {{section.settings.background_text}} ;
+    {% endif %}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 40vh;
+}
+#baner h4{
+    color: {{section.settings.level_txt_color}};
+    font-size: 16px;
+
+}
+#baner h2{
+    color: {{section.settings.heading_txt_color}};
+    font-size: 30px;
+    padding: 10px 0;
+}
+#baner h2 span{
+color: {{section.settings.span_txt_color}};
+}
+#baner h4{
+  color : {{section.settings.level_txt_color}} ;
+}
+
+
+</style>
+
+<section id="baner" >
+  <div class="section-p1 page-wraper">
+     <h4>Repair Service</h4>
+        <h2>Up to <span>70% off</span> all T-sharts and Accessories!</h2>
+        <a href="/collections/all" class="button1 normal">Explore More</a>
+  </div>
+       
+</section>
+
+
+{% schema %}
+  {
+    "name": "promotional Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Imagee"
+      },
+      {
+        "type": "color",
+        "id": "background_text",
+        "label": "Background Color",
+        "default": "#6032a8"
+      },
+      {
+        "type" : "text",
+        "id" : "level_text",
+        "label" : "Level Text",
+        "default" : "Repair Service"
+      },
+      {
+        "type": "color",
+        "id": "level_txt_color",
+        "label": "Level Text color",
+        "default": "#fff"
+      },
+      {
+        "type" : "text",
+        "id" : "heading_text",
+        "label" : "Heading Text",
+        "default" : "Up to all T-sharts and Accessories!"
+      },
+      {
+        "type": "color",
+        "id": "heading_txt_color",
+        "label": "Heading Text color",
+        "default": "#fff"
+      },
+      {
+        "type" : "text",
+        "id" : "heading_span_text",
+        "label" : "Heading Span Text",
+        "default" : "70% off"
+      },
+      {
+        "type": "color",
+        "id": "span_txt_color",
+        "label": "Span Text color",
+        "default": "#ff00c3"
+      },
+      {
+        "type" : "text",
+        "id" : "button_text",
+        "label" : "Button Text",
+        "default" : "Explore More"
+      }
+    ],
+    "presets" : [
+      {
+        "name" : "promotional Banner"
+      }
+    ]
+  }
+  {% endschema %}

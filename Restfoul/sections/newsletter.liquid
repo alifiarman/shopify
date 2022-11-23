@@ -1,0 +1,128 @@
+<style>
+  #newslater{
+    {% if section.settings.newslatter_bg_img != blank %}
+        background-image: url("{{ section.settings.newslatter_bg_img | img_url: "1900x" }}");
+    {% else %}
+        background-color: {{section.settings.newslatter_bg_color}};
+    {% endif %}
+    background-repeat: no-repeat;
+    background-position: 20% 30%;
+    background-color: #041e42;
+}
+  #newslater_wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+#newslater .newstxt h4{
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+}
+#newslater .newstxt p{
+    font-size: 14px;
+    font-weight: 600;
+    color: #818ea0;
+}
+#newslater input{
+    height: 3.125rem;
+    padding: 0 1.25em;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+#newslater .newslttr{
+    border-radius: 0 4px 4px 0;
+    background-color: #088178;
+    color: #fff;
+    white-space: nowrap;
+   
+}
+#newslater form {
+    margin-left:40px;
+    display: flex;
+    min-width: 400px;
+}
+</style>
+
+<section id="newslater" >
+  <div id="newslater_wrap" class="section-p1 page-wraper">
+  
+        <div class="newstxt">
+            <h4>{{ section.settings.newslatter_heading | upcase }}</h4>
+            <p>{{ section.settings.newslatter_small_heading }}</p>
+        </div>
+
+  
+        <div class="form">
+          
+            {% form 'customer' %}
+              
+                <input type="hidden" name="contact[tags]" value="newslatter">
+                <input type="text" name="contact[email]" value="{{ form.email }}" placeholder="Write your E-mail" requred >
+                <button type="submit" class="button1 normal newslttr">Submit<button>
+
+
+                  {% if form.errors %}
+                      {% for error in form.error %}
+                         <h3>
+                           {{ form.errors.translated_field[error] }}{{ form.errors.messages[error] }}
+                         </h3>
+                      {% endfor %}
+                  {% endif %}
+                  {% if form.posted_successfully? %}
+                      <h3> Submited Successfully </h3>
+                  {% endif %}
+            {% endform %}
+            
+
+            
+        </div>
+
+        </div>
+    </section>
+
+    
+{% schema %}
+  {
+    "name": "Newslatter Form",
+    "settings": [
+      {
+        "type" : "image_picker",
+        "id" : "newslatter_bg_img",
+        "label" : "Background Image"
+      },
+      {
+        "type" : "color",
+        "id" : "newslatter_bg_color",
+        "label" : "Background Color",
+        "default" : "#667069"
+      },
+      {
+        "type" : "text",
+        "id" : "newslatter_heading",
+        "label" : "Heading",
+        "default" : "Sing up for news latter"
+      },
+      {
+        "type" : "text",
+        "id" : "newslatter_small_heading",
+        "label" : "Small Heading",
+        "default" : "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      }
+    ],
+    "presets" : [
+      {
+        "name": "Newslatter Form"
+      }
+    ]
+  }
+{% endschema %}
+
+
+
+
+

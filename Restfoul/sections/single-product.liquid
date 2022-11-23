@@ -1,0 +1,200 @@
+<style>
+  #sproduct {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  #sproduct .single-pro-img {
+    width: 40%;
+
+  }
+  #sproduct .small-img-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  #sproduct .small-img-col {
+    flex-basis: 24%;
+    cursor: pointer;
+  }
+  #sproduct .single-pro-details {
+    width: 50%;
+    padding-top: 30px;
+  }
+  #sproduct .single-pro-details h4 {
+    padding: 40px 0 20px;
+  }
+  #sproduct .single-pro-details h2 {
+    font-size: 26px;
+  }
+  #sproduct .single-pro-details select {
+    display: block;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    outline: none;
+  }
+  #sproduct .single-pro-details input.quantity {
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    outline: none;
+  }
+  #sproduct .single-pro-details input.add-to-cart-btn {
+    cursor: pointer;
+    padding: 10px 60px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    color: #fff;
+    background-color: #30363c;
+  }
+  #sproduct .single-pro-details .bttn-wrap {
+    margin-top: 40px;
+  }
+  #sproduct .s-pro {
+    background-color: #088178;
+  }
+  #sproduct .single-pro-details span {
+    line-height: 25px;
+  }
+  .product-option fieldset {
+    outline: none;
+    border: none;
+    margin: 20px 0;
+  }
+  .product-option fieldset legend {
+    font-size: 21px;
+    padding-bottom: 14px;
+  }
+  .seleck-option {
+    margin: 7px 0;
+  }
+</style>
+
+
+<section id="sproduct" class="section-p1 page-wraper">
+  <div class="single-pro-img">
+    <img src="{{product.featured_image | img_url: '1900x'}}" width="100%" id="mainImg" alt="product">
+    <div class="small-img-group">
+
+      {% for image in product.images %}
+        <div class="small-img-col">
+          <img src="{{image.src | img_url: '1900x'}}" width="100%" onclick="imgGallery(this)" alt="product">
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="single-pro-details">
+    <h6>Home /
+      {{ product.title }}
+    </h6>
+    <h4>{{ product.title | upcase }}
+    </h4>
+    <h2>{{ product.selected_or_first_available_variant.price | money }}
+    </h2>
+
+    {% form 'product' , product %}
+      <input id="product-id" type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}">
+        {%- comment -%} {% if product.variants.size %}
+          {% for option in product.options_with_values %}
+
+                <h4>{{ option.name }}</h4>
+                    {% for value in option.values %}
+                        <select {% if option.selected_value == value %}checked{% endif %} type="radio" name="{{option.  name}}" value="{{ value }}" id="{{option.name | handleize}}-{{ value | handleize }}">
+
+                      <option for="{{option.name | handleize}}-{{ value | handleize }}">{{ value }}</option>
+                    {% endfor %}
+                </select>
+          {% endfor %}
+        {% endif %} {%- endcomment -%}
+
+      {% if product.has_only_default_variant %}
+          <p>
+
+          </p>
+      {% else %}
+        {% if product.variants.size %}
+          <div class="product-option">
+            {% for option in product.options_with_values %}
+              <fieldset>
+                <legend>{{ option.name }}
+                </legend>
+                {% for value in option.values %}
+                  <div class="seleck-option">
+                    <input {% if option.selected_value == value %}checked{% endif %} type="radio" name="{{option.name}}" value="{{ value }}" id="{{option.name | handleize}}-{{ value | handleize }}">
+
+                    <label for="{{option.name | handleize}}-{{ value | handleize }}">
+                      {{ value }}
+                    </label>
+                  </div>
+                {% endfor %}
+              </fieldset>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endif %}
+      <div class="bttn-wrap">
+        <input type="number" class="quantity" name="quantity" min="1" value="1">
+        <input class="add-to-cart-btn" type="submit" value="Add to Card" class="">
+      </div>
+    {% endform %}
+    <h4>Product Details</h4>
+    <span>{{ product.description }}
+    </span>
+  </div>
+</section>
+
+
+
+<script>
+
+  var product = {{ product | json }}
+
+// find selected options
+
+  document.querySelectorAll('.product-option input[type="radio"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+
+
+      var selectedOptions = []
+
+      document.querySelectorAll('.product-option input[type="radio"]:checked').forEach(radio => {
+        selectedOptions.push(radio.value)
+      })
+
+
+// find metched variant
+
+      var matchedVarient = product.variants.find(variant => {
+
+          var pass = true
+          for (var i = 0; i < selectedOptions.length; i++) {
+            if (selectedOptions.indexOf(variant.options[i]) === -1) {
+
+              pass = false
+              break
+
+            }
+          }
+
+          return pass
+        })
+
+  // change product from variant id
+
+        document.querySelector('#product-id').value = matchedVarient.id
+
+// change url
+// using URLParse library
+      var url = new URLParse(window.location.url, true)
+
+      url.query.variant = matchedVarient.id
+
+// resourse from stackoverflow
+
+      window.history.replaceState(null, null, url.toString());
+
+    })
+
+  })
+</script>>

@@ -1,0 +1,153 @@
+{
+  "sections": {
+    "main": {
+      "type": "homepage-slider",
+      "blocks": {
+        "9416ff7b-2a9b-4230-88d2-abb4ddf9754e": {
+          "type": "content",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/hero4.png",
+            "slider_heading_color": "#000000",
+            "slider_heading": "It’s still Magic Even if you know how it’s work",
+            "slider_pera": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over",
+            "slider_btn_txt": "Discover More"
+          }
+        },
+        "1d1c68ab-90d3-46ce-894b-3cdf676cb308": {
+          "type": "content",
+          "settings": {
+            "slider_img": "shopify:\/\/shop_images\/rack-of-womens-clothing.jpg",
+            "slider_heading_color": "#000000",
+            "slider_heading": "It’s still Magic Even if you know how it’s work",
+            "slider_pera": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over",
+            "slider_btn_txt": "Discover More"
+          }
+        }
+      },
+      "block_order": [
+        "9416ff7b-2a9b-4230-88d2-abb4ddf9754e",
+        "1d1c68ab-90d3-46ce-894b-3cdf676cb308"
+      ],
+      "settings": {
+        "slider_pera_color": "#7c0505",
+        "slider_btn_txt_color": "#000000",
+        "slider_btn_bg_color": "#5587ac"
+      }
+    },
+    "features": {
+      "type": "features",
+      "settings": {
+        "featired_img1": "shopify:\/\/shop_images\/f2.png",
+        "featured_txt1": "Free Shiping",
+        "featired_img2": "shopify:\/\/shop_images\/f4.png",
+        "featured_txt2": "Online Order",
+        "featired_img3": "shopify:\/\/shop_images\/f5.png",
+        "featured_txt3": "Save Money",
+        "featired_img4": "shopify:\/\/shop_images\/f3.png",
+        "featured_txt4": "Promotion",
+        "featired_img5": "shopify:\/\/shop_images\/f1.png",
+        "featured_txt5": "Happy Sell",
+        "featired_img6": "shopify:\/\/shop_images\/f6.png",
+        "featured_txt6": "F14\/7 Support"
+      }
+    },
+    "4a48ec84-84bf-4459-a1bb-081f4afc29b2": {
+      "type": "small-banner",
+      "settings": {
+        "frist_color": "#737475",
+        "secend_color": "#727a87",
+        "third_color": "#979fad",
+        "frist_box_text": "SEASONAL SALE",
+        "frist_box_plain_text": "Lorem ipsum dolor sit amet consectetur.",
+        "second_box_text": "SEASONAL SALE",
+        "second_box_plain_text": "Lorem ipsum dolor sit amet consectetur.",
+        "third_box_text": "SEASONAL SALE",
+        "third_box_plain_text": "Lorem ipsum dolor sit amet consectetur."
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "featured_text_heading": "Featured Product",
+        "featured_text_small": "Summer collection New Modern Design",
+        "featured_collection": "shirt",
+        "product_limit": 12
+      }
+    },
+    "20b145b6-f524-4792-825f-5bb0e2f0061f": {
+      "type": "offer-banner",
+      "settings": {
+        "text_color_1st": "#000000"
+      }
+    },
+    "new-arrivals": {
+      "type": "promotional-banner",
+      "settings": {
+        "background_image": "shopify:\/\/shop_images\/b2.jpg",
+        "background_text": "#6032a8",
+        "level_text": "Repair Service",
+        "level_txt_color": "#ffffff",
+        "heading_text": "Up to all T-sharts and Accessories!",
+        "heading_txt_color": "#ffffff",
+        "heading_span_text": "70% off",
+        "span_txt_color": "#ff00c3",
+        "button_text": "Explore More"
+      }
+    },
+    "promotional-banner": {
+      "type": "new-arrivals",
+      "settings": {
+        "heading_text": "New Arrivals",
+        "small_text": "Summer collection New Modern Design",
+        "new_arrivals_collection": "new-arrivals",
+        "showing_limit": 12
+      }
+    },
+    "offer-banner": {
+      "type": "offer-banner",
+      "settings": {
+        "frist_image": "shopify:\/\/shop_images\/b17.jpg",
+        "second_image": "shopify:\/\/shop_images\/b10.jpg",
+        "text_color_1st": "#ffffff"
+      }
+    },
+    "small-banner": {
+      "type": "small-banner",
+      "settings": {
+        "frist_image": "shopify:\/\/shop_images\/b7.jpg",
+        "frist_color": "#737475",
+        "secend_image": "shopify:\/\/shop_images\/b4.jpg",
+        "secend_color": "#727a87",
+        "third_image": "shopify:\/\/shop_images\/b18.jpg",
+        "third_color": "#979fad",
+        "frist_box_text": "SEASONAL SALE",
+        "frist_box_plain_text": "Lorem ipsum dolor sit amet consectetur.",
+        "second_box_text": "SEASONAL SALE",
+        "second_box_plain_text": "Lorem ipsum dolor sit amet consectetur.",
+        "third_box_text": "SEASONAL SALE",
+        "third_box_plain_text": "Lorem ipsum dolor sit amet consectetur."
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "newslatter_bg_img": "shopify:\/\/shop_images\/b4.jpg",
+        "newslatter_bg_color": "#667069",
+        "newslatter_heading": "Sing up for news latter",
+        "newslatter_small_heading": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "features",
+    "4a48ec84-84bf-4459-a1bb-081f4afc29b2",
+    "featured-collection",
+    "20b145b6-f524-4792-825f-5bb0e2f0061f",
+    "new-arrivals",
+    "promotional-banner",
+    "offer-banner",
+    "small-banner",
+    "newsletter"
+  ]
+}

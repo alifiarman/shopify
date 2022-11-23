@@ -1,0 +1,39 @@
+{
+  "sections": {
+    "header": {
+      "type": "main-page",
+      "settings": {
+        "bg_img": "shopify:\/\/shop_images\/b1.jpg",
+        "sub_heading": "Lorem ipsum dolor sit amet consectetur."
+      }
+    },
+    "main": {
+      "type": "all-product",
+      "settings": {}
+    },
+    "43917696-17d9-473e-9d65-2a51270df6fb": {
+      "type": "featured-collection",
+      "settings": {
+        "featured_text_heading": "Featured Product",
+        "featured_text_small": "Summer collection New Modern Design",
+        "featured_collection": "womwns",
+        "product_limit": 6
+      }
+    },
+    "783e4d08-5c27-4cce-98cc-a6861905d498": {
+      "type": "new-arrivals",
+      "settings": {
+        "heading_text": "New Arrivals",
+        "small_text": "Summer collection New Modern Design",
+        "new_arrivals_collection": "new-arrivals",
+        "showing_limit": 6
+      }
+    }
+  },
+  "order": [
+    "header",
+    "main",
+    "43917696-17d9-473e-9d65-2a51270df6fb",
+    "783e4d08-5c27-4cce-98cc-a6861905d498"
+  ]
+}

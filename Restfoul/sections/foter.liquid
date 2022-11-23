@@ -1,0 +1,333 @@
+<style>
+    #fotter{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        background-color: {{ section.settings.foter_bg_color }};
+    }
+    #fotter .col{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 28px;
+    
+    }
+    #fotter span.logo-t{
+        margin-bottom: 30px;
+        color: {{section.settings.txt_foter_logo_color}} ;
+        font-weight: 500;
+        font-size:{{section.settings.txt_foter_logo_font_size}}px;
+    }
+    #fotter .logo{
+        margin-bottom: 30px;
+        width : {{ section.settings.logo_foter_img_size }}px;
+        object-fit : cover;
+    }
+    #fotter h4{
+        font-size: 14px;
+        padding-bottom: 20px;
+    }
+    #fotter .install p{
+        font-size: 13px;
+        padding-bottom: 8px;
+    }
+    #fotter a{
+        font-size: 13px;
+        color: #222;
+        margin-bottom: 10px;
+    }
+    #fotter .col img{
+        margin-top: 10px;
+    }
+    #fotter .install img{
+        border: 1px solid #088178;
+        border-radius: 5px;
+    }
+    .copywrite{
+        text-align: center;
+        background-color: {{ section.settings.foter_bg_color }};
+    }
+    #fotter .icons i{
+        color: #465b52;
+        padding: 0 10px;
+        transition: .4s ease;
+    }
+    #fotter .icons i:hover{
+        color: #fc32ff;
+    }
+    
+    
+</style>
+
+
+
+
+<footer id="fotter" class="section-p1 page-wraper">
+    <div class="col">
+        
+        {% if section.settings.foter_logo != blank %}
+            <img class="logo" src="{{section.settings.foter_logo | img_url }}" alt="logo">
+        {% else %}
+            <span class="logo-t"> {{shop.name}} </span>
+        {% endif %}
+
+        <h4>Contuct</h4>
+        {% if section.settings.foter_address != blank %}
+            <p><strong>Address: </strong>{{ section.settings.foter_address }}</p>
+        {% endif %}
+
+        {% if section.settings.foter_email_address != blank %}
+            <p><strong>E-mail: </strong>{{ section.settings.foter_email_address }}</p>
+        {% endif %}
+
+        {% if section.settings.foter_phone != blank %}
+            <p><strong>Phone: </strong>{{section.settings.foter_phone}}</p>
+        {% endif %}
+
+
+        <div class="follow">
+            <div class="icons">
+
+                {% if section.settings.facebook_link != blank %}
+                    <a href="{{ section.settings.facebook_link }}"><i class="fab fa-facebook-f"></i></a>
+                {% endif %}
+
+                {% if section.settings.twitter_link != blank %}
+                    <a href="{{ section.settings.twitter_link }}"><i class="fab fa-twitter"></i></a>
+                {% endif %}
+
+                {% if section.settings.instagram_link != blank %}
+                    <a href="{{section.settings.instagram_link}}"><i class="fab fa-instagram"></i></a>
+                {% endif %}
+                
+                {% if section.settings.pintarest_link != blank %}
+                    <a href="{{section.settings.pintarest_link}}"><i class="fab fa-pinterest-p"></i></a>
+                {% endif %}
+
+                {% if section.settings.youtube_link != blank %}
+                    <a href="{{section.settings.youtube_link}}"><i class="fab fa-youtube"></i></a>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+    <div class="col">
+
+
+
+            {% if section.settings.foter_menu != blank %}
+                <h4>{{section.settings.foter_menu_title | upcase}}</h4>
+            {% endif %}
+
+        {% for link in section.settings.foter_menu.links %}
+                
+            {% if link.links != blank %}
+                Dropdown here
+            {% else %}
+                
+                <a href="{{link.url}}">{{ link.title }}</a>
+            {% endif %}
+
+        {% endfor %}
+
+
+
+    </div>
+
+
+    <div class="col">
+
+
+
+            {% if section.settings.foter_customer_menu != blank %}
+                <h4>{{ section.settings.customer_menu_title | upcase }}</h4>
+            {% endif %}
+
+           {% for link in section.settings.foter_customer_menu.links %}
+                
+            {% if link.links != blank %}
+                Dropdown here
+            {% else %}
+                
+                <a href="{{link.url}}">{{ link.title }}</a>
+            {% endif %}
+
+            {% endfor %}
+
+
+    </div>
+
+
+
+    
+    <div class="col install"> 
+
+        <h4>Install App</h4>
+
+            <p>From Google Play Store & App Store</p>
+
+        <div class="rew">
+
+
+            {% if section.settings.google_play_app != blank %}
+                <img src="{{section.settings.google_play_app | img_url: "1900x" }}" alt="play">
+            {% endif %}
+
+            {% if section.settings.apple_app_stor != blank %}
+                <img src="{{section.settings.apple_app_stor | img_url: "1900x" }}" alt="app">
+            {% endif %}
+
+
+        </div>
+        <p>Secure Payment Getway</p>
+
+        {% if section.settings.payment_getway != blank %}
+            <img src="{{section.settings.payment_getway | img_url: "1900x" }}" alt="pay">
+        {% endif %}
+    </div>
+
+
+
+
+</footer>
+<!--------------copywrite start -------------------->
+<div class="copywrite section-p1 page-wraper">
+    <p>{{ section.settings.copyright_txt }}</p>
+</div>
+
+
+
+{% schema %}
+{
+    "name" : "Foter",
+    "settings" : [
+        {
+            "type": "color",
+            "id": "foter_bg_color",
+            "label": "Foter Background Color",
+            "default": "#fff"
+        },
+        {
+            "type" : "image_picker",
+            "id" : "foter_logo",
+            "label" : "Foter Logo",
+            "info" : "This theme was created by Alif Arman , you can use this for free!"
+        },
+        {
+            "type": "range",
+            "id": "logo_foter_img_size",
+            "min": 40,
+            "max": 150,
+            "step": 10,
+            "label": "Logo Image Size",
+            "default": 100
+        },
+        {
+            "type": "color",
+            "id": "txt_foter_logo_color",
+            "label": "Text Foter Logo Color",
+            "default": "#000"
+        },
+        {
+            "type": "number",
+            "id": "txt_foter_logo_font_size",
+            "label": "Text Foter Logo Font Size",
+            "default": 25
+        },
+        {
+            "type": "text",
+            "id": "foter_address",
+            "label": "Address",
+            "default": "Lorem ipsum dolor sit amet."
+        },
+        {
+            "type": "text",
+            "id": "foter_email_address",
+            "label": "Email Address",
+            "default": "sample@gmail.com"
+        },
+        {
+            "type": "text",
+            "id": "foter_phone",
+            "label": "Phone Number",
+            "default": "0123456789"
+        },
+        {
+            "type": "text",
+            "id": "facebook_link",
+            "label": "Facebook Link",
+            "default": "#"
+        },
+        {
+            "type": "text",
+            "id": "twitter_link",
+            "label": "Twitter Link",
+            "default": "#"
+        },
+        {
+            "type": "text",
+            "id": "instagram_link",
+            "label": "Instagram Link",
+            "default": "#"
+        },
+        {
+            "type": "text",
+            "id": "pintarest_link",
+            "label": "Pintarest Link",
+            "default": "#"
+        },
+        {
+            "type": "text",
+            "id": "youtube_link",
+            "label": "YouTube Link",
+            "default": "#"
+        },
+        {
+            "type": "text",
+            "id": "foter_menu_title",
+            "label": "Foter Menu Title",
+            "default": "About"
+        },
+        {
+            "type": "link_list",
+            "id": "foter_menu",
+            "label": "Select a Menu",
+            "default" : "main-menu"
+        },
+        {
+            "type": "text",
+            "id": "customer_menu_title",
+            "label": "Customer Menu Title",
+            "default": "My Account"
+        },
+        {
+            "type": "link_list",
+            "id": "foter_customer_menu",
+            "label": "Select a Menu",
+            "default" : "main-menu"
+        },
+        {
+            "type" : "image_picker",
+            "id" : "google_play_app",
+            "label" : "Upload Play Store Photo (170x50)"
+        },
+        {
+            "type" : "image_picker",
+            "id" : "apple_app_stor",
+            "label" : "Upload App Store Photo (170x50)"
+        },
+        {
+            "type" : "image_picker",
+            "id" : "payment_getway",
+            "label" : "Upload Payment Getway Photo (225x33)"
+        },
+        {
+            "type": "text",
+            "id": "copyright_txt",
+            "label": "Copyright Text",
+            "default": "© 2004-2022 CBS INTERACTIVE. ALL RIGHTS RESERVED."
+        }
+          
+    ]
+}
+{% endschema %}

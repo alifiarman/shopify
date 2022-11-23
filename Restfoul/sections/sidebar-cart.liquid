@@ -1,0 +1,47 @@
+
+<form action="{{ routes.cart_url }}" method="post">
+<div class="cart-wrap" >
+    <div class="btn-wrap">  
+      <i id="close" class="fa-solid fa-xmark"></i>
+      <a class="sidbar-cart-btn" href="/cart">Go to cart page</a>
+    </div>
+      
+        <div class="ajax-cart" data-ajax-cart-section>
+          <h3>Cart</h3>
+            {% for item in cart.items %}
+                <img src="{{ item.image | img_url: 'medium' }}" alt="">
+                <div class="cart_container">
+
+                <div class="title-wrap"><a class="title" href="{{ item.url }}">{{ item.title }}</a></div>
+                <div class="Price ">Price: {{ item.final_price | money }}</div>
+                
+                <div class="quantity">
+                  Quantity:
+                  <a class="qntt-btn" data-ajax-cart-request-button
+                    href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity={{ item.quantity | minus: 1 }}">
+                    -
+                  </a>
+                  <input class="qntt-input" data-ajax-cart-quantity-input="{{ forloop.index }}" value="{{ item.quantity }}" name="updates[]" type="number"/>
+                  <a class="qntt-btn" data-ajax-cart-request-button
+                    href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity={{ item.quantity | plus: 1 }}">
+                    +
+                  </a>
+                </div>
+                <div class="m-t-b">Total: <strong>{{ item.final_line_price | money }}</strong></div>
+                <div data-ajax-cart-messages="{{ item.key }}"></div>
+                
+
+              </div>  
+                <hr>
+            {% endfor %}
+          <button class="checkout" type="submit" name="checkout">Checkout — {{ cart.total_price | money_with_currency }}</button>
+        </div>
+    </div>  
+</form>
+
+{% schema %}
+  {
+    "name": "Cart Sidebar",
+    "settings": []
+  }
+{% endschema %}

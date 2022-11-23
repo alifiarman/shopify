@@ -1,0 +1,246 @@
+<style>
+  #header {
+    background-color: {{ section.settings.header_bg_color}};
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    z-index: 99;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: {{ section.settings.header_bg_vartical_space}}px 80px;
+    background-color: transparent;
+  }
+  #header a.logo img {
+    width: {{ section.settings.logo_img_size }}px;
+    object-fit: cover;
+  }
+  #header a.logo span {
+    color: {{ section.settings.txt_logo_color}};
+    font-weight: 500;
+    font-size: {{ section.settings.txt_logo_font_size}}px;
+  }
+  #nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  #nav-bar li {
+    cursor: pointer;
+    padding: 0 {{ section.settings.link_space }}px;
+  }
+  #nav-bar li a {
+    font-size: {{ section.settings.link_font_size}}px;
+    font-weight: 500;
+    color: {{ section.settings.txt_link_color}};
+    transition: 0.3s ease;
+    position: relative;
+  }
+  .mobile,
+  .toggle-close {
+    display: none;
+    cursor: pointer;
+  }
+  #nav-bar li a.active::after,
+  #nav-bar li a:hover::after {
+    content: "";
+    position: absolute;
+    width: 40%;
+    height: 2px;
+    background-color: {{ section.settings.txt_link_color_hover}};
+    bottom: -4px;
+    left: 0;
+  }
+  #nav-bar li a:hover,
+  #nav-bar li a.active {
+    color: {{ section.settings.txt_link_color_hover}};
+  }
+
+
+  @media(max-width: 820px) {
+    #nav-bar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      height: 100vh;
+      width: 300px;
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding-top: 82px;
+      transition: 0.4s ease;
+    }
+    #nav-bar.active {
+      right: 0;
+    }
+    #nav-bar li {
+      margin-bottom: 39px;
+    }
+    #nav-bar .cart-icon {
+      position: absolute;
+      top: 30px;
+      right: 12px;
+    }
+    #nav-bar .cart-icon span {
+      margin-left: 10px;
+    }
+    #nav-bar .toggle-close {
+      display: initial;
+      position: absolute;
+      top: 30px;
+      left: 12px;
+    }
+
+    .active {
+      position: fixed;
+      top: 0;
+      right: 0;
+    }
+    .mobile {
+      display: flex;
+    }
+    .mobile i {
+      padding: 0 10px;
+    }
+  }
+  @media(max-width: 477px) {
+    #header {
+      padding: 10px 30px;
+    }
+    .header {
+      padding: 0;
+    }
+  }
+</style>
+
+
+
+<section id="header">
+  <div class="page-wraper">
+    <div class="header">
+      <a href="{{ shop.url }}" class="logo">
+        {% if section.settings.nav_logo != blank %}
+          <img src="{{ section.settings.nav_logo | img_url }}" alt="logo">
+        {% else %}
+          <span>
+            {{shop.name}}
+          </span>
+        {% endif %}
+      </a>
+
+      <div>
+        <ul id="nav-bar">
+
+          {% for link in section.settings.header-menu.links %}
+            {% if link.links != blank %}
+              Dropdown here
+            {% else %}
+              <li>
+                <a href="{{ link.url }}" class="{% if link.current %}active{% endif %}">{{ link.title }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+
+          <li id="sidebar_cart_open" class="cart-icon">
+            <span data-ajax-cart-bind-state="cart.item_count">{{ cart.item_count }}</span>
+            <i class="fa-solid fa-cart-shopping"></i>
+          </li>
+
+          {% comment %}
+            Mobile Toggol
+          {% endcomment %}
+
+          <li class="toggle-close">
+            <i id="clos" class="fa-solid fa-xmark"></i>
+          </li>
+        </ul>
+
+        <div class="mobile">
+          <li id="toggle-open">
+            <i id="bar" class="fa-solid fa-bars"></i>
+          </li>
+          <li id="sidebar_cart_open_mobile" class="cart-icon">
+            <span data-ajax-cart-bind-state="cart.item_count">{{ cart.item_count }}</span>
+            <i class="fa-solid fa-cart-shopping"></i>
+          </li>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "nav_logo",
+        "label": "Site Logo",
+        "info": "This theme was created by Alif Arman, you can use this for free!"
+      },
+      {
+        "type": "link_list",
+        "id": "header-menu",
+        "label": "Select a Menu",
+        "default": "main-menu"
+      },
+      {
+        "type": "color",
+        "id": "header_bg_color",
+        "label": "Background Color",
+        "default": "#e3e6f3"
+      },
+      {
+        "type": "number",
+        "id": "header_bg_vartical_space",
+        "label": "Header Vertical Space",
+        "default": 20
+      }, {
+        "type": "color",
+        "id": "txt_logo_color",
+        "label": "Text Logo Color",
+        "default": "#000"
+      }, {
+        "type": "range",
+        "id": "logo_img_size",
+        "min": 40,
+        "max": 150,
+        "step": 10,
+        "label": "Logo Image Size",
+        "default": 100
+      }, {
+        "type": "number",
+        "id": "txt_logo_font_size",
+        "label": "Text Logo Font Size",
+        "default": 25
+      }, {
+        "type": "color",
+        "id": "txt_link_color",
+        "label": "Link Text Color",
+        "default": " #1a1a1a"
+      }, {
+        "type": "color",
+        "id": "txt_link_color_hover",
+        "label": "Link Text Color on Hover",
+        "default": "#088178"
+      }, {
+        "type": "number",
+        "id": "link_font_size",
+        "label": "Link Font Size",
+        "default": 18
+      }, {
+        "type": "number",
+        "id": "link_space",
+        "label": "Link Spacing",
+        "default": 20
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,60 @@
+
+
+// responsive menu bar
+
+const bar = document.getElementById("bar");
+const navBar = document.getElementById("nav-bar");
+const clos = document.getElementById("clos");
+
+if("bar") {
+    bar.addEventListener('click', ( ) => {
+        navBar.classList.add('active');
+    })
+}
+if("clos") {
+    clos.addEventListener('click', ( ) => {
+        navBar.classList.remove('active');
+    })
+}
+
+// Side bar Cart 
+
+const open = document.getElementById("sidebar_cart_open");
+const openMobile = document.getElementById("sidebar_cart_open_mobile");
+const cartWrap = document.getElementById("cart-wrap");
+const close = document.querySelector(".btn-wrap #close");
+
+if("open") {
+    open.addEventListener('click', ( ) => {
+        cartWrap.classList.add('open');
+    })
+}
+if("openMobile") {
+    openMobile.addEventListener('click', ( ) => {
+        cartWrap.classList.add('open');
+    })
+}
+if("close") {
+    close.addEventListener('click', ( ) => {
+        cartWrap.classList.remove('open');
+    })
+}
+
+// single prodcut img slider
+
+function imgGallery(smallImg){
+    var mainImages = document.querySelector("#mainImg");
+
+    mainImages.src = smallImg.src;
+  }
+
+  $(document).ready(function(){
+    $('.sliders').slick({
+    prevArrow: '<img class="prev" src="images/prev.png" alt="">',
+    nextArrow: '<img class="next" src="images/next.png" alt="">',
+    autoplay:true,
+    speed: 500,
+    loop: true,
+    // dots: true
+});
+});

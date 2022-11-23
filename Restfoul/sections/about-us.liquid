@@ -1,0 +1,114 @@
+<style>
+    #about-head{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #about-head .about-img{
+        width: 50%;
+        margin-right: 40px;
+    }
+    #about-head .about-img img{
+        width: 100%;
+        border-radius: 10px;
+    }
+    #about-head .about-details {
+        width: 50%;
+        min-height: 425px;
+        display: flex;
+        padding: 0 20px;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #DEEBFE;
+        border-radius: 10px;
+    }
+    #about-head .about-details h2{
+        color: rgb(45, 45, 45);
+    }
+    #about-head .about-details p{
+        color: rgb(69, 68, 68);
+        font-size: 18px;
+        line-height: 20px;
+    }
+    #about-head .about-details abbr{
+        color: rgb(69, 68, 68);
+        font-size: 18px;
+        line-height: 20px;
+    }
+    #about-head .about-details marquee{
+        margin-top: 25px;
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    @media (max-width: 477px ){
+        #about-head {
+            flex-direction: column;
+        }
+        #about-head .about-img {
+            width: 100%;
+            margin-right: 0;
+        }
+        #about-head .about-details {
+            width: 100%;
+        }
+    }
+</style>
+
+<section id="about-head" class="section-p1 page-wraper">
+    <div class="about-img">
+        <img src="{{ section.settings.about_img | img_url: '1900x' }}" alt="{{ page.title }}">
+    </div>
+    <div class="about-details">
+        <h2>Who we are?</h2>
+
+        <p>{{ section.settings.about_txt }}</p>
+
+        {% if section.settings.dotted_txt != blank %}
+            <abbr title="">{{section.settings.dotted_txt}}</abbr>
+        {% endif %}
+
+        {% if section.settings.text_with_animation != blank %}
+            <marquee bgcolor ="#ccc" loop="-1" scrollamount="5" width="100%" >{{ section.settings.text_with_animation }}</marquee>
+        {% endif %}
+    </div>
+</section>
+
+
+{%- schema -%}
+{
+    "name" : "About Us",
+    "settings" : [
+        {
+            "type": "image_picker",
+            "id": "about_img",
+            "label": "About Image"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Text With Dot",
+            "default": "Who we are?"
+        },
+        {
+            "type": "text",
+            "id": "about_txt",
+            "label": "About Us",
+            "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque fugiat maxime beatae earum velit tempora recusandae laboriosam nemo quibusdam repudiandae reiciendis dicta suscipit at harum architecto necessitatibus culpa eius, sint porro. Voluptatum nulla qui placeat hic accusantium illum, sint earum illo voluptates dolor labore fugit ex nostrum molestias eius saepe temporibus aut eaque sapiente repellendus! Nihil cupiditate quasi sed iusto harum illum, architecto quae amet ullam obcaecati excepturi alias ratione!"
+        },
+        {
+            "type": "text",
+            "id": "dotted_txt",
+            "label": "Heading With Dot",
+            "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus sit molestiae, eum laborum maxime modi soluta amet dolorum! Explicabo, laborum."
+        },
+        {
+            "type": "text",
+            "id": "text_with_animation",
+            "label": "Text With Animation",
+            "default": "sint earum illo voluptates dolor labore fugit ex nostrum molestias eius saepe temporibus aut eaque sapiente repellendus! Nihil"
+        }
+
+    ]
+}
+{%- endschema -%}

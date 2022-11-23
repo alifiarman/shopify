@@ -1,0 +1,35 @@
+[
+    {
+        "name": "theme_info",
+        "theme_name": "Restfuol",
+        "theme_version": "1.0.0",
+        "theme_author": "Alif Arman",
+        "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes",
+        "theme_support_url": "https:\/\/support.shopify.com\/"
+    },
+    {
+        "name" : "Favicon",
+        "settings": [
+            {
+                "type" : "header",
+                "content" : "Favicon Size 30x30"
+            },
+            {
+                "type" : "image_picker",
+                "id" : "favicon",
+                "label" : "Favicon"
+            }
+        ]
+    },
+    {
+        "name" : "Header",
+        "settings" : [
+            {
+                "type": "checkbox",
+                "id": "enable_stycki_header",
+                "label": "Enable Stycki Header",
+                "default": true
+            }
+        ]
+    }
+]
